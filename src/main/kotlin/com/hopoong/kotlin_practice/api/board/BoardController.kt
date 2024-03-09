@@ -30,5 +30,13 @@ class BoardController @Autowired constructor(
     }
 
 
+    @GetMapping("/{id}")
+    fun getPost(@PathVariable(required = true) id: Long): ResponseEntity<Any> {
+        return ResponseEntity.ok().body(boardService.get(id))
+    }
 
+    @GetMapping("/list")
+    fun listPost(): ResponseEntity<Any> {
+        return ResponseEntity.ok().body(boardService.list())
+    }
 }

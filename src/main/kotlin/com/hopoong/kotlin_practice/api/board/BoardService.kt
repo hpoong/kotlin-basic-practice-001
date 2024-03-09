@@ -36,6 +36,20 @@ class BoardService @Autowired constructor(
         return true
     }
 
+    /*
+     * 조회
+     */
+    fun get(id: Long): BoardEntity {
+        return boardRepository.findById(id).get()
+    }
+
+    /*
+     * 전체 조회
+     */
+    fun list(): List<BoardEntity> {
+        return boardRepository.findAll()
+    }
+
 
     fun BoardDto.toEntity(): BoardEntity {
         return BoardEntity(
